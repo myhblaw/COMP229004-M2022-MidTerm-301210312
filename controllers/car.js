@@ -1,3 +1,11 @@
+/*
+    car.js
+    Student's name: Yuk Hong Ma
+    Student ID: 301210312
+    Web App: Used Car Store
+    Date: June 24, 2022
+*/
+
 // create a reference to the model
 let CarModel = require('../models/car');
 
@@ -34,7 +42,7 @@ module.exports.details = (req, res, next) => {
         }
         else
         {
-            //show the edit view
+            //show the details view
             res.render('cars/details', {
                 title: 'Car Details', 
                 car: carToShow
@@ -51,7 +59,7 @@ module.exports.displayAddPage = (req, res, next) => {
     let newItem = CarModel();
 
     res.render('cars/add_edit', {
-        title: 'Add a new contact',
+        title: 'Add a new Car',
         car: newItem,
         userName: req.user ? req.user.username : ''
     })          
@@ -83,7 +91,7 @@ module.exports.processAddPage = (req, res, next) => {
         }
         else
         {
-            // refresh the book list
+            // refresh the car list
             console.log(car);
             res.redirect('/cars/list');
         }
